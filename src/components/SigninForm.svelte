@@ -9,20 +9,20 @@
 <div
   class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8"
 >
-  <div class="max-w-md w-full space-y-8 p-6 rounded-xl shadow-lg bg-white">
+  <div class="max-w-md w-full space-y-8 p-6 rounded-xl shadow-lg bg-blue-950">
     <div>
-      <h1 class="mt-6 text-center text-3xl font-extrabold text-black">
-        <!-- Adjusted to black color here -->
-        Sign in
+      <h1 class="mt-6 text-center text-3xl font-extrabold text-white">
+        Iniciar sesion
       </h1>
-      <p class="mt-2 text-center text-sm text-black/80">
-        New?
-        <a href="/register" class="font-medium text-black hover:text-black/70">
-          Create an account
+      <p class="mt-2 text-center text-sm text-white/80">
+        Nuevo?
+        <a href="/register" class="font-medium text-white hover:text-white/70 ">
+          Crear una cuenta
         </a>
       </p>
     </div>
-    <form class="mt-8 space-y-6" on:submit|preventDefault={handleLogin}>
+    <p class="border-t"></p>
+    <form class="mt-8 space-y-6 " on:submit|preventDefault={handleLogin}>
       <div class="rounded-md space-y-4">
         <div>
           <label for="email" class="sr-only">Email</label>
@@ -40,15 +40,15 @@
             bind:value={password}
             type="password"
             id="password"
-            placeholder="Password"
+            placeholder="Contraseña"
             autocomplete="current-password"
           />
           <div class="text-right mt-2">
             <a
               href="/forgot-password"
-              class="font-medium text-sm text-black hover:text-black/70"
+              class="font-medium text-sm text-white hover:text-white/70"
             >
-              Forgot your password?
+              Olvidaste tu contraseña?
             </a>
           </div>
         </div>
@@ -64,22 +64,9 @@
         {#if loading}
           <LoadingButton class="w-full" />
         {:else}
-          <Button class="w-full" type="submit">Sign in</Button>
+          <Button class="w-full bg-white hover:bg-white/60" type="submit"><p class="text-black">Iniciar sesion</p></Button>
         {/if}
       </div>
     </form>
-
-    <div class="relative">
-      <div class="absolute inset-0 flex items-center">
-        <span class="w-full border-t" />
-      </div>
-      <div class="relative flex justify-center text-xs uppercase">
-        <span class="bg-white px-2 text-[#71717a]">Or continue with</span>
-      </div>
-    </div>
-
-    <div>
-      <GoogleSignInButton />
-    </div>
   </div>
 </div>

@@ -16,7 +16,7 @@
   <div class="max-w-2xl" />
   {#if user}
     <!-- User is logged in, show Sign out button -->
-    <div class="max-w-md w-full rounded-xl shadow-lg p-5 mt-16 bg-white">
+    <div class="max-w-md w-full rounded-xl shadow-lg p-5 mt-16 bg-blue-950">
       <div class="flex flex-col items-center justify-center gap-4">
         <Button
           href="/dashboard"
@@ -32,16 +32,16 @@
     </div>
   {:else}
     <!-- No user is logged in, show Sign up and Sign in buttons -->
-    <div class="max-w-md w-full rounded-xl shadow-lg p-5 mt-16 bg-white">
+    <div class="max-w-md w-full rounded-xl shadow-lg p-5 mt-16 bg-blue-950">
       <div class="flex flex-col items-center justify-center gap-4">
         <Button
-          href="/signin"
+          href="/login"
           variant="outlined"
           class="w-full transform hover:-translate-y-1"
         >
           Sign in
         </Button>
-        <Button href="/signup" class="w-full transform hover:-translate-y-1">
+        <Button href="/register" class="w-full transform hover:-translate-y-1">
           Sign up
         </Button>
       </div>

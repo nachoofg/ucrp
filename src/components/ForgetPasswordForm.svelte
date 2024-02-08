@@ -21,12 +21,12 @@
 <div
   class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8"
 >
-  <div class="max-w-md w-full space-y-8 p-6 rounded-xl shadow-lg bg-white">
+  <div class="max-w-md w-full space-y-8 p-6 rounded-xl shadow-lg bg-blue-950">
     <div>
-      <h1 class="mt-6 text-center text-3xl font-extrabold text-black">
+      <h1 class="mt-6 text-center text-3xl font-extrabold text-white">
         Reset Password
       </h1>
-      <p class="mt-2 text-center text-sm text-black/80">
+      <p class="mt-2 text-center text-sm text-white/80">
         Enter the email associated with your account.
       </p>
     </div>
@@ -57,9 +57,9 @@
         {#if loading}
           <LoadingButton class="w-full" />
         {:else}
-          <Button class="w-full" type="submit">
+          <Button class="w-full bg-white hover:bg-white/60" type="submit">
             <Mail />
-            Send Reset Email</Button
+            <p class="text-black">Send Reset Email</p></Button
           >
         {/if}
       </div>

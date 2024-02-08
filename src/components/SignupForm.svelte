@@ -19,27 +19,28 @@
 <div
   class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8"
 >
-  <div class="max-w-md w-full space-y-8 p-6 rounded-xl shadow-lg bg-white">
+  <div class="max-w-md w-full space-y-8 p-6 rounded-xl shadow-lg bg-blue-950">
     <div>
-      <h1 class="mt-6 text-center text-3xl font-extrabold text-black">
-        Sign up
+      <h1 class="mt-6 text-center text-3xl font-extrabold text-white">
+        Registrarse
       </h1>
-      <p class="mt-2 text-center text-sm text-black/80">
-        Already have an account?
-        <a href="/login" class="font-medium text-black hover:text-black/70">
-          Sign in
+      <p class="mt-2 text-center text-sm text-white/80">
+        Ya tenes una cuenta?
+        <a href="/login" class="font-medium text-white hover:text-white/70">
+          Registrarse
         </a>
       </p>
     </div>
+    <p class="border-t"></p>
     <form class="mt-8 space-y-6" on:submit|preventDefault={createAccount}>
       <div class="rounded-md shadow-sm space-y-4">
         <div>
-          <label for="name" class="sr-only">Name</label>
+          <label for="name" class="sr-only">Nombre</label>
           <Input
             bind:value={name}
             type="text"
             id="name"
-            placeholder="Name"
+            placeholder="Nombre"
             autocomplete="name"
           />
         </div>
@@ -54,12 +55,12 @@
           />
         </div>
         <div>
-          <label for="password" class="sr-only">Password</label>
+          <label for="password" class="sr-only">Contraseña</label>
           <Input
             bind:value={password}
             type="password"
             id="password"
-            placeholder="Password"
+            placeholder="Contraseña"
             autocomplete="password"
           />
         </div>
@@ -71,19 +72,8 @@
         </div>
       {/if}
       <div>
-        <Button class="w-full" type="submit">Sign up</Button>
+        <Button class="w-full bg-white hover:bg-white/60" type="submit"><p class="text-black">Registrarse</p></Button>
       </div>
     </form>
-    <div class="relative">
-      <div class="absolute inset-0 flex items-center">
-        <span class="w-full border-t" />
-      </div>
-      <div class="relative flex justify-center text-xs uppercase">
-        <span class="bg-white px-2 text-[#71717a]">Or continue with</span>
-      </div>
-    </div>
-    <div>
-      <GoogleSignInButton />
-    </div>
   </div>
 </div>

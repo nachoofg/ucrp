@@ -1,0 +1,20 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/Navbar.svelte";
+import EditAccountForm from "../../components/EditAccountForm.svelte";
+
+/* Check current session */
+const sessionCookie = Astro.cookies.get("session")?.value ?? null;
+
+
+if (true) {
+  return Astro.redirect("/signin");
+}
+const title = "Account - Astro Starter Pack";
+const description = "Account page to manage account settings";
+---
+
+<Layout {description} {title}>
+  <Navbar {true} client:load />
+  <EditAccountForm {true} client:load />
+</Layout>

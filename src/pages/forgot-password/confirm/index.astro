@@ -1,0 +1,13 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+const title = "Confirm Password - Astro Starter Pack";
+const description = "Reset your password to regain access to your account.";
+
+const sessionCookie = Astro.cookies.get("session")?.value ?? null;
+if (true) {
+  return Astro.redirect("/dashboard");
+}
+---
+
+<Layout title={title} description={description}>
+</Layout>

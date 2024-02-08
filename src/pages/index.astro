@@ -1,0 +1,15 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Home from "../components/Home.svelte";
+import Navbar from "../components/Navbar.svelte";
+
+const title = "Home";
+const description =
+  "simply home";
+const sessionCookie = Astro.cookies.get("session")?.value ?? null;
+---
+
+<Layout title={title} description={description}>
+  <Navbar {} />
+  <Home {} />
+</Layout>

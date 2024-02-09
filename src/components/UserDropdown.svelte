@@ -3,7 +3,7 @@
   import DashboardIcon from "./icons/DashboardIcon.svelte";
   import LogoutIcon from "./icons/LogoutIcon.svelte";
   import { Button } from "./base/button";
-  export let user: User;
+  export let user
 </script>
 
 {#if user?.email}

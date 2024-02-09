@@ -1,19 +1,10 @@
 <script>
   import { Button } from "./base/button";
-  import GoogleSignInButton from "./social/GoogleSignInButton.svelte";
+  import { createUser } from "../services/sqlite/user";
   import { Input } from "./base/input";
-  let name, email, password, errorMessage;
-  async function createAccount() {
-    try {
-      const redirectedUrl = await handleSignup(name, email, password);
-      if (redirectedUrl) {
-        window.location.assign(redirectedUrl);
-      }
-    } catch (error) {
-      console.error("Error during sign in:", error);
-      errorMessage = getFriendlyErrorMessage(error);
-    }
-  }
+  let username, email, password, errorMessage;
+  console.error("svelte", username, email, password);
+  createUser(username, email, password);
 </script>
 
 <div
@@ -32,22 +23,22 @@
       </p>
     </div>
     <p class="border-t"></p>
-    <form class="mt-8 space-y-6" on:submit|preventDefault={createAccount}>
+    <form class="mt-8 space-y-6" on:submit|preventDefault={createUser}>
       <div class="rounded-md shadow-sm space-y-4">
         <div>
-          <label for="name" class="sr-only">Nombre</label>
+          <label for="name" class="sr-only">Nombre de usuario</label>
           <Input
-            bind:value={name}
+            bind:username={username}
             type="text"
             id="name"
-            placeholder="Nombre"
-            autocomplete="name"
+            placeholder="Nombre de usuario"
+            autocomplete="username"
           />
         </div>
         <div>
           <label for="email" class="sr-only">Email</label>
           <Input
-            bind:value={email}
+            bind:email={email}
             type="email"
             id="email"
             placeholder="Email"
@@ -57,7 +48,7 @@
         <div>
           <label for="password" class="sr-only">Contraseña</label>
           <Input
-            bind:value={password}
+            bind:password={password}
             type="password"
             id="password"
             placeholder="Contraseña"
@@ -66,13 +57,14 @@
         </div>
       </div>
       {#if errorMessage}
-        <!-- Container for error message with margin for spacing -->
         <div class="mt-4 mb-3 text-center">
           <p class="text-red-500 text-sm">{errorMessage}</p>
         </div>
       {/if}
       <div>
-        <Button class="w-full bg-white hover:bg-white/60" type="submit"><p class="text-black">Registrarse</p></Button>
+        <Button class="w-full bg-white hover:bg-white/60" type="submit"
+          ><p class="text-black">Registrarse</p></Button
+        >
       </div>
     </form>
   </div>

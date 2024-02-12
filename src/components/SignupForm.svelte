@@ -12,7 +12,9 @@
   }
 </script>
 
-<div class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+<div
+  class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8"
+>
   <div class="max-w-md w-full space-y-8 p-6 rounded-xl shadow-lg bg-blue-950">
     <div>
       <h1 class="mt-6 text-center text-3xl font-extrabold text-white">
@@ -29,15 +31,38 @@
     <form on:submit|preventDefault={handler} class="mt-8 space-y-6">
       <div class="rounded-md shadow-sm space-y-4">
         <label for="name" class="sr-only">Nombre de usuario</label>
-        <Input type="text" id="name" placeholder="Nombre de usuario" autocomplete="username" bind:value={usernamep} />
+        <Input
+          type="text"
+          id="name"
+          placeholder="Nombre de usuario"
+          autocomplete="username"
+          bind:value={usernamep}
+        />
 
         <label for="email" class="sr-only">Email</label>
-        <Input type="email" id="email" placeholder="Email" autocomplete="email" bind:value={emailp} />
+        <Input
+          type="email"
+          id="email"
+          placeholder="Email"
+          autocomplete="email"
+          bind:value={emailp}
+        />
 
         <label for="password" class="sr-only">Contraseña</label>
-        <Input type="password" id="password" placeholder="Contraseña" autocomplete="new-password" bind:value={passwordp} />
+        <Input
+          type="password"
+          id="password"
+          placeholder="Contraseña"
+          autocomplete="new-password"
+          bind:value={passwordp}
+        />
 
-        <Button type="submit" class="w-full bg-white hover:bg-white/60 text-black">Registrarse</Button>
+        <Button
+          type="submit"
+          class="w-full bg-white hover:bg-white/60 text-black"
+          on:click={createUser(usernamep, emailp, passwordp)}
+          >Registrarse</Button
+        >
       </div>
     </form>
   </div>

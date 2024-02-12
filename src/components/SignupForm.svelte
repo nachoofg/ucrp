@@ -1,15 +1,18 @@
 <script>
-  import { Button } from "./base/button";
   import { createUser } from "../services/sqlite/user";
+  import { Button } from "./base/button";
   import { Input } from "./base/input";
-  let username, email, password, errorMessage;
-  console.error("svelte", username, email, password);
-  createUser(username, email, password);
+  let usernamep = "";
+  let emailp = "";
+  let passwordp = "";
+
+  function handler() {
+    console.error("svelte", usernamep, emailp, passwordp);
+    createUser(usernamep, emailp, passwordp);
+  }
 </script>
 
-<div
-  class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8"
->
+<div class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
   <div class="max-w-md w-full space-y-8 p-6 rounded-xl shadow-lg bg-blue-950">
     <div>
       <h1 class="mt-6 text-center text-3xl font-extrabold text-white">
@@ -18,53 +21,23 @@
       <p class="mt-2 text-center text-sm text-white/80">
         Ya tenes una cuenta?
         <a href="/login" class="font-medium text-white hover:text-white/70">
-          Registrarse
+          Inicia sesion
         </a>
       </p>
     </div>
     <p class="border-t"></p>
-    <form class="mt-8 space-y-6" on:submit|preventDefault={createUser}>
+    <form on:submit|preventDefault={handler} class="mt-8 space-y-6">
       <div class="rounded-md shadow-sm space-y-4">
-        <div>
-          <label for="name" class="sr-only">Nombre de usuario</label>
-          <Input
-            bind:username={username}
-            type="text"
-            id="name"
-            placeholder="Nombre de usuario"
-            autocomplete="username"
-          />
-        </div>
-        <div>
-          <label for="email" class="sr-only">Email</label>
-          <Input
-            bind:email={email}
-            type="email"
-            id="email"
-            placeholder="Email"
-            autocomplete="email"
-          />
-        </div>
-        <div>
-          <label for="password" class="sr-only">Contraseña</label>
-          <Input
-            bind:password={password}
-            type="password"
-            id="password"
-            placeholder="Contraseña"
-            autocomplete="password"
-          />
-        </div>
-      </div>
-      {#if errorMessage}
-        <div class="mt-4 mb-3 text-center">
-          <p class="text-red-500 text-sm">{errorMessage}</p>
-        </div>
-      {/if}
-      <div>
-        <Button class="w-full bg-white hover:bg-white/60" type="submit"
-          ><p class="text-black">Registrarse</p></Button
-        >
+        <label for="name" class="sr-only">Nombre de usuario</label>
+        <Input type="text" id="name" placeholder="Nombre de usuario" autocomplete="username" bind:value={usernamep} />
+
+        <label for="email" class="sr-only">Email</label>
+        <Input type="email" id="email" placeholder="Email" autocomplete="email" bind:value={emailp} />
+
+        <label for="password" class="sr-only">Contraseña</label>
+        <Input type="password" id="password" placeholder="Contraseña" autocomplete="new-password" bind:value={passwordp} />
+
+        <Button type="submit" class="w-full bg-white hover:bg-white/60 text-black">Registrarse</Button>
       </div>
     </form>
   </div>

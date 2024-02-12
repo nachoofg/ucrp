@@ -1,14 +1,12 @@
 <script>
-  import { createUser } from "../services/sqlite/user";
-  import { Button } from "./base/button";
-  import { Input } from "./base/input";
-  let usernamep = "";
-  let emailp = "";
-  let passwordp = "";
+  // import { createUser } from "../services/sqlite/user";
+  let username = "";
+  let email = "";
+  let password = "";
 
   function handler() {
-    console.error("svelte", usernamep, emailp, passwordp);
-    createUser(usernamep, emailp, passwordp);
+    console.log("svelte", username, email, password);
+    // createUser(username, email, password);
   }
 </script>
 
@@ -31,37 +29,39 @@
     <form on:submit|preventDefault={handler} class="mt-8 space-y-6">
       <div class="rounded-md shadow-sm space-y-4">
         <label for="name" class="sr-only">Nombre de usuario</label>
-        <Input
+        <input
+          class="appearance-none rounded-md block w-full px-3 py-2 border border-black/20 placeholder-black/80 text-black focus:outline-none focus:z-10 sm:text-sm"
           type="text"
           id="name"
           placeholder="Nombre de usuario"
           autocomplete="username"
-          bind:value={usernamep}
+          bind:value={username}
         />
 
         <label for="email" class="sr-only">Email</label>
-        <Input
+        <input
+          class="appearance-none rounded-md block w-full px-3 py-2 border border-black/20 placeholder-black/80 text-black focus:outline-none focus:z-10 sm:text-sm"
           type="email"
           id="email"
           placeholder="Email"
           autocomplete="email"
-          bind:value={emailp}
+          bind:value={email}
         />
 
         <label for="password" class="sr-only">Contraseña</label>
-        <Input
+        <input
+          class="appearance-none rounded-md block w-full px-3 py-2 border border-black/20 placeholder-black/80 text-black focus:outline-none focus:z-10 sm:text-sm"
           type="password"
           id="password"
           placeholder="Contraseña"
           autocomplete="new-password"
-          bind:value={passwordp}
+          bind:value={password}
         />
 
-        <Button
+        <button
           type="submit"
-          class="w-full bg-white hover:bg-white/60 text-black"
-          on:click={createUser(usernamep, emailp, passwordp)}
-          >Registrarse</Button
+          class="w-full bg-white hover:bg-white/60 text-black rounded-full border border-black bg-black p-1.5 px-4 text-sm text-white hover:bg-black/80 transition duration-200 ease-in-out"
+          ><p class="text-black">Registrarse</p></button
         >
       </div>
     </form>

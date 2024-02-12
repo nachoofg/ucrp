@@ -1,4 +1,4 @@
-<script>
+<!-- <script>
   import { Button } from "./base/button";
   import { Input } from "./base/input";
   import getFriendlyErrorMessage from "@/firebase/utils/auth/getFriendlyErrorMessage";
@@ -101,3 +101,4 @@
     </form>
   </div>
 </div>
+ -->

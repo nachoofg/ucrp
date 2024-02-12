@@ -1,4 +1,4 @@
-<script>
+<!-- <script>
   import { getAuth, confirmPasswordReset } from "firebase/auth";
   import Navbar from "./Navbar.svelte";
   import { Button } from "./base/button";
@@ -85,3 +85,4 @@
     </form>
   </div>
 </div>
+ -->
